@@ -1,0 +1,49 @@
+body {
+	background-color: black;
+	color: #E0EAF0;
+	font-family: sans-serif;
+}
+button {
+	width: 3em;
+	height: 2em;
+	border: 1px outset #1A1C1F;
+	border-radius: 1px;
+	outline: none;
+	background-color: #1A1C1F;
+	color: inherit;
+	font-family: inherit;
+	font-size: 24px;
+}
+	button:active {
+		border-style: inset;
+		border-color: #2A4060;
+		background-color: #2A4060;
+	}
+
+#video, #canvas {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 3.2em;
+	
+	transition-property: bottom;
+	transition-duration: 0.25s;
+}
+	.noToolbar #video, .noToolbar #canvas {
+		bottom: 0;
+	}
+#toolbar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 3em;
+	padding: 0.1em;
+	
+	text-align: center;
+	white-space: nowrap;
+}
+.toolbarGroup {
+	display: inline-block;
+}

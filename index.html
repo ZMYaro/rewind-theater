@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Rewind Theater</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="video.js"></script>
+		<script type="text/javascript" src="annotate.js"></script>
+	</head>
+	<body>
+		<video id="video"></video>
+		<div id="canvas"></div>
+		<div id="toolbar">
+			<button style="float: right;" id="hideToolbarBtn" title="Hide toolbar (T)">
+				&#x23EC;
+			</button>
+			<div class="toolbarGroup" style="float: left;">
+				<input type="file" accept="video/*" id="fileUpload" />
+			</div>
+			<div class="toolbarGroup">
+				<button id="rectBtn" title="Rectangle (R)">
+					&#x25FD;
+				</button>
+				<button id="clearBtn" title="Clear (Esc)">
+					&#x2718; <!-- &#2716; -->
+				</button>
+			</div>
+			&nbsp
+			<div class="toolbarGroup">
+				<button id="rewBtn" title="Rewind (&larr;)">
+					&#x23EA;
+				</button>
+				<button id="playBtn" title="Play (Space)">
+					&#x23EF;
+				</button>
+				<button id="pauseBtn" title="Pause (Space)">
+					&#x23EF;
+				</button>
+				<button id="fwdBtn" title="Fast forward (&rarr;)">
+					&#x23E9;
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

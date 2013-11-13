@@ -15,6 +15,9 @@ window.addEventListener('keydown', function(e) {
 			startFwd();
 			document.getElementById('fwdBtn').disabled = true;
 			break;
+		case 67: // C
+			clearCanvas();
+			break;
 		case 84: // T
 			toggleToolbar();
 			break;

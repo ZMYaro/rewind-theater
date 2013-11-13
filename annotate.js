@@ -3,7 +3,6 @@ var currentShape;
 
 function startDraw(e) {
 	e.preventDefault();
-	console.log(e);
 	
 	// If a shape is already being drawn, do not start another one.
 	if(currentShape) {
@@ -36,10 +35,19 @@ function continueDraw(e) {
 		return;
 	}
 	
+	var x, y;
+	if(e.changedTouches) {
+		x = e.changedTouches[0].pageX;
+		y = e.changedTouches[0].pageY;
+	} else {
+		x = e.pageX;
+		y = e.pageY;
+	}
+	
 	currentShape.elem.style.width =
-		(e.pageX - currentShape.startX) + 'px';
+		(x - currentShape.startX) + 'px';
 	currentShape.elem.style.height =
-		(e.pageY - currentShape.startY) + 'px';
+		(y - currentShape.startY) + 'px';
 }
 function stopDraw(e) {
 	e.preventDefault();

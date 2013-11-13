@@ -16,7 +16,8 @@ window.addEventListener('keydown', function(e) {
 			document.getElementById('fwdBtn').disabled = true;
 			break;
 		case 84: // T
-			document.getElementById('toolbar').classList.toggle('hidden');
+			toggleToolbar();
+			break;
 	}
 }, false);
 window.addEventListener('keyup', function(e) {

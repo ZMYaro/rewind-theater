@@ -6,10 +6,27 @@ var rewInterval;
 var fwdInterval;
 
 /**
+ * Stops an event and blurs any clicked button
+ * @param {Event} e
+ */
+function stopEvent(e) {
+	if(!e) {
+		return;
+	}
+	e.preventDefault();
+	// If the event clicked something like a button, remove focus from the clicked thing.
+	if(e instanceof MouseEvent && e.target && e.target.blur) {
+		e.target.blur();
+	}
+}
+
+/**
  * Load the video from the <input>
  * @param e
  */
 function loadVideo(e) {
+	stopEvent(e);
+	
 	if(window.File && window.FileReader && window.FileList && window.Blob) {
 		var file = e.target.files[0];
 		if(!file || !file.type.match('video.*')) {
@@ -27,7 +44,8 @@ function loadVideo(e) {
 
 /** Toggle video play state */
 function playPause(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	if(vid.paused) {
 		vid.play();
 	} else {
@@ -37,39 +55,51 @@ function playPause(e) {
 
 /** Start rewinding */
 function startRew(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	if(!rewInterval) {
 		rewInterval = setInterval(rewind, 100);
 	}
 }
 /** Stop rewinding */
 function stopRew(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	clearInterval(rewInterval);
 	rewInterval = null;
 }
 /** Rewind the video slightly */
 function rewind(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	vid.currentTime -= SEEK_AMT;
 }
 /** Start fast-forwarding */
-function startFwd(e) { 
-	if(e) { e.preventDefault(); }
+function startFwd(e) {
+	stopEvent(e);
+	
 	if(!fwdInterval) {
 		fwdInterval = setInterval(fastForward, 100);
 	}
 }
 /** Stop fast-forwarding */
 function stopFwd(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	clearInterval(fwdInterval);
 	fwdInterval = null;
 }
 /** Fast-forward the video slightly */
 function fastForward(e) {
-	if(e) { e.preventDefault(); }
+	stopEvent(e);
+	
 	vid.currentTime += SEEK_AMT;
+}
+
+/** Toggles the toolbar's hiddenness */
+function toggleToolbar(e) {
+	stopEvent(e);
+	document.getElementById('toolbar').classList.toggle('hidden');
 }
 
 window.addEventListener('load', function() {
@@ -81,9 +111,5 @@ window.addEventListener('load', function() {
 	document.getElementById('fwdBtn').addEventListener('mouseup', stopFwd, false);
 	document.getElementById('vidUpload').addEventListener('change', loadVideo, false);
 	
-	document.getElementById('hideToolbarBtn').addEventListener('click', function(e) {
-		e.preventDefault();
-		e.target.blur();
-		document.getElementById('toolbar').classList.toggle('hidden');
-	}, false);
+	document.getElementById('hideToolbarBtn').addEventListener('click', toggleToolbar, false);
 }, false);

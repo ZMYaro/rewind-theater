@@ -58,7 +58,7 @@ function stopDraw(e) {
 function clearCanvas(e) {
 	if(e) { e.preventDefault(); }
 	// Remove all canvas content.
-	canvas.innerHTML = ' ';
+	canvas.innerHTML = '<span></span>';
 	/*var shapes = canvas.getElementsByClassName('shape');
 	while(shapes.length > 0) {
 		canvas.removeChild(shapes[0]);

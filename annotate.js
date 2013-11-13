@@ -57,10 +57,12 @@ function stopDraw(e) {
 /** Remove all shapes from the canvas */
 function clearCanvas(e) {
 	if(e) { e.preventDefault(); }
-	var shapes = canvas.getElementsByClassName('shape');
+	// Remove all canvas content.
+	canvas.innerHTML = ' ';
+	/*var shapes = canvas.getElementsByClassName('shape');
 	while(shapes.length > 0) {
 		canvas.removeChild(shapes[0]);
-	}
+	}*/
 }
 
 window.addEventListener('load', function() {

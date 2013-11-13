@@ -35,17 +35,35 @@ function playPause() {
 }
 
 /** Start rewinding */
-function startRew() { rewInterval = setInterval(rewind, 100); }
+function startRew() {
+	if(!rewInterval) {
+		rewInterval = setInterval(rewind, 100);
+	}
+}
 /** Stop rewinding */
-function stopRew() { clearInterval(rewInterval); }
+function stopRew() {
+	clearInterval(rewInterval);
+	rewInterval = null;
+}
 /** Rewind the video slightly */
-function rewind() { vid.currentTime -= SEEK_AMT; }
+function rewind() {
+	vid.currentTime -= SEEK_AMT;
+}
 /** Start fast-forwarding */
-function startFwd() { fwdInterval = setInterval(fastForward, 100); }
+function startFwd() { 
+	if(!fwdInterval) {
+		fwdInterval = setInterval(fastForward, 100);
+	}
+}
 /** Stop fast-forwarding */
-function stopFwd() { clearInterval(fwdInterval); }
+function stopFwd() {
+	clearInterval(fwdInterval);
+	fwdInterval = null;
+}
 /** Fast-forward the video slightly */
-function fastForward() { vid.currentTime += SEEK_AMT; }
+function fastForward() {
+	vid.currentTime += SEEK_AMT;
+}
 
 window.addEventListener('load', function() {
 	vid = document.getElementById('vid');

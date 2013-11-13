@@ -20,7 +20,7 @@ button {
 		background-color: #2A4060;
 	}
 
-#video, #canvas {
+#vid, #canvas {
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -47,3 +47,17 @@ button {
 .toolbarGroup {
 	display: inline-block;
 }
+
+.shape {
+	position: fixed;
+	
+	border-radius: 1px;
+	border: 2px solid lime;
+	box-shadow: 0 1px 2px 0 lime,
+		inset 0 1px 2px 0 lime,
+		0 1px 4px 0 rgba(0,0,0,0.2),
+		inset 0 1px 4px 0 rgba(0,0,0,0.2);
+}
+	.shape.ellipse {
+		border-radius: 50%;
+	}

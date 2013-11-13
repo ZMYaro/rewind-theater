@@ -26,7 +26,8 @@ function loadVideo(e) {
 }
 
 /** Toggle video play state */
-function playPause() {
+function playPause(e) {
+	if(e) { e.preventDefault(); }
 	if(vid.paused) {
 		vid.play();
 	} else {
@@ -35,33 +36,39 @@ function playPause() {
 }
 
 /** Start rewinding */
-function startRew() {
+function startRew(e) {
+	if(e) { e.preventDefault(); }
 	if(!rewInterval) {
 		rewInterval = setInterval(rewind, 100);
 	}
 }
 /** Stop rewinding */
-function stopRew() {
+function stopRew(e) {
+	if(e) { e.preventDefault(); }
 	clearInterval(rewInterval);
 	rewInterval = null;
 }
 /** Rewind the video slightly */
-function rewind() {
+function rewind(e) {
+	if(e) { e.preventDefault(); }
 	vid.currentTime -= SEEK_AMT;
 }
 /** Start fast-forwarding */
-function startFwd() { 
+function startFwd(e) { 
+	if(e) { e.preventDefault(); }
 	if(!fwdInterval) {
 		fwdInterval = setInterval(fastForward, 100);
 	}
 }
 /** Stop fast-forwarding */
-function stopFwd() {
+function stopFwd(e) {
+	if(e) { e.preventDefault(); }
 	clearInterval(fwdInterval);
 	fwdInterval = null;
 }
 /** Fast-forward the video slightly */
-function fastForward() {
+function fastForward(e) {
+	if(e) { e.preventDefault(); }
 	vid.currentTime += SEEK_AMT;
 }
 
@@ -78,14 +85,14 @@ window.addEventListener('load', function() {
 window.addEventListener('keydown', function(e) {
 	switch(e.keyCode) {
 		case 32: // space
-			playPause();
+			playPause(e);
 			break;
 		case 37: // left
-			startRew();
+			startRew(e);
 			document.getElementById('rewBtn').disabled = true;
 			break;
 		case 39: // right
-			startFwd();
+			startFwd(e);
 			document.getElementById('fwdBtn').disabled = true;
 			break;
 	}
@@ -93,11 +100,11 @@ window.addEventListener('keydown', function(e) {
 window.addEventListener('keyup', function(e) {
 	switch(e.keyCode) {
 		case 37: // left
-			stopRew();
+			stopRew(e);
 			document.getElementById('rewBtn').disabled = false;
 			break;
 		case 39: // right
-			stopFwd();
+			stopFwd(e);
 			document.getElementById('fwdBtn').disabled = false;
 			break;
 	}

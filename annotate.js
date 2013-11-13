@@ -31,6 +31,7 @@ function startDraw(e) {
 	canvas.appendChild(currentShape.elem);
 }
 function continueDraw(e) {
+	e.preventDefault();
 	if(!currentShape) {
 		return;
 	}
@@ -41,11 +42,13 @@ function continueDraw(e) {
 		(e.pageY - currentShape.startY) + 'px';
 }
 function stopDraw(e) {
+	e.preventDefault();
 	currentShape = null;
 }
 
 /** Remove all shapes from the canvas */
-function clearCanvas() {
+function clearCanvas(e) {
+	if(e) { e.preventDefault(); }
 	var shapes = canvas.getElementsByClassName('shape');
 	while(shapes.length > 0) {
 		canvas.removeChild(shapes[0]);

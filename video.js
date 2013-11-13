@@ -80,4 +80,10 @@ window.addEventListener('load', function() {
 	document.getElementById('fwdBtn').addEventListener('mousedown', startFwd, false);
 	document.getElementById('fwdBtn').addEventListener('mouseup', stopFwd, false);
 	document.getElementById('vidUpload').addEventListener('change', loadVideo, false);
+	
+	document.getElementById('hideToolbarBtn').addEventListener('click', function(e) {
+		e.preventDefault();
+		e.target.blur();
+		document.getElementById('toolbar').classList.toggle('hidden');
+	}, false);
 }, false);

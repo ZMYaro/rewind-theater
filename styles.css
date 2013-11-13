@@ -26,13 +26,7 @@ button {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	
-	transition-property: bottom;
-	transition-duration: 0.25s;
 }
-	.noToolbar #video, .noToolbar #canvas {
-		bottom: 0;
-	}
 #toolbar {
 	position: fixed;
 	left: 0;
@@ -49,7 +43,16 @@ button {
 	
 	text-align: center;
 	white-space: nowrap;
+	
+	opacity: 1;
+	
+	transition-property: bottom, opacity;
+	transition-duration: 0.25s;
 }
+	#toolbar.hidden {
+		bottom: -4em;
+		opacity: 0;
+	}
 .toolbarGroup {
 	display: inline-block;
 }

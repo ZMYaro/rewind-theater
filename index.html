@@ -8,16 +8,17 @@
 		<script type="text/javascript" src="annotate.js"></script>
 	</head>
 	<body>
-		<video id="video"></video>
+		<video id="vid"></video>
 		<div id="canvas"></div>
 		<div id="toolbar">
 			<button style="float: right;" id="hideToolbarBtn" title="Hide toolbar (T)">
-				&#x23EC;
+				&#x27F1;
 			</button>
 			<div class="toolbarGroup" style="float: left;">
-				<input type="file" accept="video/*" id="fileUpload" />
+				<input type="file" accept="video/*" name="vidUpload" id="vidUpload" />
 			</div>
-			<div class="toolbarGroup">
+			<div class="toolbarGroup" style="float: left;">
+				&nbsp;
 				<button id="rectBtn" title="Rectangle (R)">
 					&#x25FD;
 				</button>
@@ -25,19 +26,15 @@
 					&#x2718; <!-- &#2716; -->
 				</button>
 			</div>
-			&nbsp
 			<div class="toolbarGroup">
 				<button id="rewBtn" title="Rewind (&larr;)">
-					&#x23EA;
+					&#x25C4;&#x25C4;<!--&#x23EA;-->
 				</button>
-				<button id="playBtn" title="Play (Space)">
-					&#x23EF;
-				</button>
-				<button id="pauseBtn" title="Pause (Space)">
-					&#x23EF;
+				<button id="playPauseBtn" title="Play/Pause (Space)">
+					&#x25BA;&#x25AE;&#x25AE;
 				</button>
 				<button id="fwdBtn" title="Fast forward (&rarr;)">
-					&#x23E9;
+					&#x25BA;&#x25BA;<!--&#x23E9;-->
 				</button>
 			</div>
 		</div>

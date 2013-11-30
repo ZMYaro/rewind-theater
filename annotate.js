@@ -1,4 +1,5 @@
 var canvas;
+var tool = 'rect';
 var currentShape;
 
 function startDraw(e) {
@@ -23,7 +24,7 @@ function startDraw(e) {
 	
 	// Create a new shape element.
 	currentShape.elem = document.createElement('div');
-	currentShape.elem.className = 'shape rect';
+	currentShape.elem.className = 'shape ' + tool;
 	
 	currentShape.elem.style.left = currentShape.startX + 'px';
 	currentShape.elem.style.top = currentShape.startY + 'px';
@@ -44,10 +45,28 @@ function continueDraw(e) {
 		y = e.pageY;
 	}
 	
-	currentShape.elem.style.width =
-		(x - currentShape.startX) + 'px';
-	currentShape.elem.style.height =
-		(y - currentShape.startY) + 'px';
+	if(x > currentShape.startX) {
+		currentShape.elem.style.left =
+			currentShape.startX + 'px';
+		currentShape.elem.style.width =
+			(x - currentShape.startX) + 'px';
+	} else {
+		currentShape.elem.style.left =
+			x + 'px';
+		currentShape.elem.style.width =
+			(currentShape.startX - x) + 'px';
+	}
+	if(y > currentShape.startY) {
+		currentShape.elem.style.top =
+			currentShape.startY + 'px';
+		currentShape.elem.style.height =
+			(y - currentShape.startY) + 'px';
+	} else {
+		currentShape.elem.style.top =
+			y + 'px';
+		currentShape.elem.style.height =
+			(currentShape.startY - y) + 'px';
+	}
 }
 function stopDraw(e) {
 	e.preventDefault();
@@ -85,5 +104,10 @@ window.addEventListener('load', function() {
 	//canvas.addEventListener('touchleave', stopDraw, false);
 	
 	document.getElementById('clearBtn').addEventListener('click', clearCanvas, false);
-		
+	document.getElementById('rectBtn').addEventListener('click', function() {
+		tool = 'rect';
+	}, false);
+	document.getElementById('ellipseBtn').addEventListener('click', function() {
+		tool = 'ellipse';
+	})
 }, false);

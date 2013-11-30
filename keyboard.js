@@ -18,6 +18,12 @@ window.addEventListener('keydown', function(e) {
 		case 67: // C
 			clearCanvas();
 			break;
+		case 69: // E
+			tool = 'ellipse';
+			break;
+		case 82: // R
+			tool = 'rect';
+			break;
 		case 84: // T
 			toggleToolbar();
 			break;

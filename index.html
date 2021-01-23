@@ -13,6 +13,18 @@
 		<script type="text/javascript" src="video.js"></script>
 		<script type="text/javascript" src="annotate.js"></script>
 		<script type="text/javascript" src="keyboard.js"></script>
+		
+		<script type="text/javascript">
+			if (!!navigator.serviceWorker && !!window.Cache && !!Cache.prototype.addAll) {
+				navigator.serviceWorker.register('/service_worker.js').then(function () {
+					console.log('Service worker registered.');
+				}).catch(function () {
+					console.log('Service worker failed to register.');
+				});
+			} else {
+				console.log('Service worker caching not supported.');
+			}
+		</script>
 	</head>
 	<body>
 		<video id="vid"></video>

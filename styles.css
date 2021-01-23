@@ -31,6 +31,11 @@ button {
 		background-color: #2a4060;
 		background-color: rgba(42, 64, 96, 0.5);
 	}
+	button:disabled {
+		background: transparent;
+		opacity: 0.75;
+		cursor: default;
+	}
 	button svg {
 		width: 1.5rem;
 		height: 1.5rem;

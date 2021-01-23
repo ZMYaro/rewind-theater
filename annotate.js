@@ -6,7 +6,7 @@ function startDraw(e) {
 	e.preventDefault();
 	
 	// If a shape is already being drawn, do not start another one.
-	if(currentShape) {
+	if (currentShape) {
 		return;
 	}
 	
@@ -14,7 +14,7 @@ function startDraw(e) {
 	// accessed by the other drawing functions.
 	currentShape = {};
 	
-	if(e.changedTouches) {
+	if (e.changedTouches) {
 		currentShape.startX = e.changedTouches[0].pageX;
 		currentShape.startY = e.changedTouches[0].pageY;
 	} else {
@@ -32,12 +32,12 @@ function startDraw(e) {
 }
 function continueDraw(e) {
 	e.preventDefault();
-	if(!currentShape) {
+	if (!currentShape) {
 		return;
 	}
 	
 	var x, y;
-	if(e.changedTouches) {
+	if (e.changedTouches) {
 		x = e.changedTouches[0].pageX;
 		y = e.changedTouches[0].pageY;
 	} else {
@@ -45,7 +45,7 @@ function continueDraw(e) {
 		y = e.pageY;
 	}
 	
-	if(x > currentShape.startX) {
+	if (x > currentShape.startX) {
 		currentShape.elem.style.left =
 			currentShape.startX + 'px';
 		currentShape.elem.style.width =
@@ -56,7 +56,7 @@ function continueDraw(e) {
 		currentShape.elem.style.width =
 			(currentShape.startX - x) + 'px';
 	}
-	if(y > currentShape.startY) {
+	if (y > currentShape.startY) {
 		currentShape.elem.style.top =
 			currentShape.startY + 'px';
 		currentShape.elem.style.height =
@@ -75,7 +75,7 @@ function stopDraw(e) {
 
 /** Remove all shapes from the canvas */
 function clearCanvas(e) {
-	if(e) { e.preventDefault(); }
+	if (e) { e.preventDefault(); }
 	// Remove all canvas content.
 	canvas.innerHTML = '<span></span>';
 	/*var shapes = canvas.getElementsByClassName('shape');
@@ -84,10 +84,10 @@ function clearCanvas(e) {
 	}*/
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 	canvas = document.getElementById('canvas');
 	
-	canvas.addEventListener('selectstart', function(e) {
+	canvas.addEventListener('selectstart', function (e) {
 		e.preventDefault();
 	}, false);
 	
@@ -103,11 +103,11 @@ window.addEventListener('load', function() {
 	canvas.addEventListener('touchcancel', stopDraw, false);
 	//canvas.addEventListener('touchleave', stopDraw, false);
 	
-	document.getElementById('clearBtn').addEventListener('click', clearCanvas, false);
-	document.getElementById('rectBtn').addEventListener('click', function() {
+	document.getElementById('clear-btn').addEventListener('click', clearCanvas, false);
+	document.getElementById('rect-btn').addEventListener('click', function () {
 		tool = 'rect';
 	}, false);
-	document.getElementById('ellipseBtn').addEventListener('click', function() {
+	document.getElementById('ellipse-btn').addEventListener('click', function () {
 		tool = 'ellipse';
 	})
 }, false);

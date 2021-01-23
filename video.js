@@ -17,7 +17,7 @@ function stopEvent(e) {
 	}
 	e.preventDefault();
 	// If the event clicked something like a button, remove focus from the clicked thing.
-	if(e instanceof MouseEvent && e.target && e.target.blur) {
+	if (e instanceof MouseEvent && e.target && e.target.blur) {
 		e.target.blur();
 	}
 }
@@ -29,9 +29,9 @@ function stopEvent(e) {
 function loadVideo(e) {
 	stopEvent(e);
 	
-	if(window.File && window.FileReader && window.FileList && window.Blob) {
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
 		var file = e.target.files[0];
-		if(!file || !file.type.match('video.*')) {
+		if (!file || !file.type.match('video.*')) {
 			return;
 		}
 		var reader = new FileReader();
@@ -48,7 +48,7 @@ function loadVideo(e) {
 function playPause(e) {
 	stopEvent(e);
 	
-	if(vid.paused) {
+	if (vid.paused) {
 		vid.play();
 		playIcon.style.display = 'none';
 		pauseIcon.style.removeProperty('display');
@@ -63,7 +63,7 @@ function playPause(e) {
 function startRew(e) {
 	stopEvent(e);
 	
-	if(!rewInterval) {
+	if (!rewInterval) {
 		rewInterval = setInterval(rewind, 100);
 	}
 }
@@ -84,7 +84,7 @@ function rewind(e) {
 function startFwd(e) {
 	stopEvent(e);
 	
-	if(!fwdInterval) {
+	if (!fwdInterval) {
 		fwdInterval = setInterval(fastForward, 100);
 	}
 }
@@ -110,14 +110,14 @@ function toggleToolbar(e) {
 
 window.addEventListener('load', function() {
 	vid = document.getElementById('vid');
-	playIcon = document.getElementById('playIcon');
-	pauseIcon = document.getElementById('pauseIcon');
-	document.getElementById('playPauseBtn').addEventListener('click', playPause, false);
-	document.getElementById('rewBtn').addEventListener('mousedown', startRew, false);
-	document.getElementById('rewBtn').addEventListener('mouseup', stopRew, false);
-	document.getElementById('fwdBtn').addEventListener('mousedown', startFwd, false);
-	document.getElementById('fwdBtn').addEventListener('mouseup', stopFwd, false);
-	document.getElementById('vidUpload').addEventListener('change', loadVideo, false);
+	playIcon = document.getElementById('play-icon');
+	pauseIcon = document.getElementById('pause-icon');
+	document.getElementById('play-pause-btn').addEventListener('click', playPause, false);
+	document.getElementById('rew-btn').addEventListener('mousedown', startRew, false);
+	document.getElementById('rew-btn').addEventListener('mouseup', stopRew, false);
+	document.getElementById('fwd-btn').addEventListener('mousedown', startFwd, false);
+	document.getElementById('fwd-btn').addEventListener('mouseup', stopFwd, false);
+	document.getElementById('vid-upload').addEventListener('change', loadVideo, false);
 	
-	document.getElementById('hideToolbarBtn').addEventListener('click', toggleToolbar, false);
+	document.getElementById('hide-toolbar-btn').addEventListener('click', toggleToolbar, false);
 }, false);

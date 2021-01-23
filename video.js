@@ -1,9 +1,11 @@
 /** How far to seek when rewinding or fast-forwarding */
 var SEEK_AMT = 1;
 
-var vid;
-var rewInterval;
-var fwdInterval;
+var vid,
+	playIcon,
+	pauseIcon,
+	rewInterval,
+	fwdInterval;
 
 /**
  * Stops an event and blurs any clicked button
@@ -48,8 +50,12 @@ function playPause(e) {
 	
 	if(vid.paused) {
 		vid.play();
+		playIcon.style.display = 'none';
+		pauseIcon.style.removeProperty('display');
 	} else {
 		vid.pause();
+		pauseIcon.style.display = 'none';
+		playIcon.style.removeProperty('display');
 	}
 }
 
@@ -104,6 +110,8 @@ function toggleToolbar(e) {
 
 window.addEventListener('load', function() {
 	vid = document.getElementById('vid');
+	playIcon = document.getElementById('playIcon');
+	pauseIcon = document.getElementById('pauseIcon');
 	document.getElementById('playPauseBtn').addEventListener('click', playPause, false);
 	document.getElementById('rewBtn').addEventListener('mousedown', startRew, false);
 	document.getElementById('rewBtn').addEventListener('mouseup', stopRew, false);

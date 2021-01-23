@@ -18,28 +18,53 @@
 			<div>
 				&nbsp;
 				<button id="rectBtn" title="Rectangle (R)">
-					&#x25FB;
+					<svg role="img">
+						<title>Rectangle</title>
+						<use xlink:href="images/icons/rect.svg#icon" href="images/icons/rect.svg#icon"></use>
+					</svg>
 				</button>
 				<button id="ellipseBtn" title="Ellipse (E)">
-					&#x25EF;
+					<svg role="img">
+						<title>Ellipse</title>
+						<use xlink:href="images/icons/circle.svg#icon" href="images/icons/circle.svg#icon"></use>
+					</svg>
 				</button>
 				<button id="clearBtn" title="Clear (C; Esc)">
-					&#x2718; <!-- &#2716; -->
+					<svg role="img">
+						<title>Clear all</title>
+						<use xlink:href="images/icons/clear.svg#icon" href="images/icons/clear.svg#icon"></use>
+					</svg>
 				</button>
 			</div>
 			<div>
 				<button id="rewBtn" title="Rewind (&larr;)">
-					&#x25C4;&#x25C4;<!--&#x23EA;-->
+					<svg role="img">
+						<title>Rewind</title>
+						<use xlink:href="images/icons/rewind.svg#icon" href="images/icons/rewind.svg#icon"></use>
+					</svg>
 				</button>
 				<button id="playPauseBtn" title="Play/Pause (Space)">
-					&#x25BA;&#x25AE;&#x25AE;
+					<svg role="img" id="playIcon">
+						<title>Play</title>
+						<use xlink:href="images/icons/play.svg#icon" href="images/icons/play.svg#icon"></use>
+					</svg>
+					<svg role="img" id="pauseIcon" style="display: none;">
+						<title>Pause</title>
+						<use xlink:href="images/icons/pause.svg#icon" href="images/icons/pause.svg#icon"></use>
+					</svg>
 				</button>
 				<button id="fwdBtn" title="Fast forward (&rarr;)">
-					&#x25BA;&#x25BA;<!--&#x23E9;-->
+					<svg role="img">
+						<title>Fast forward</title>
+						<use xlink:href="images/icons/fast_forward.svg#icon" href="images/icons/fast_forward.svg#icon"></use>
+					</svg>
 				</button>
 			</div>
 			<button id="hideToolbarBtn" title="Hide toolbar (T)">
-				&#x27F1;
+				<svg role="img" style="transform: rotateZ(180deg);">
+					<title>Hide toolbar</title>
+					<use xlink:href="images/icons/caret_down.svg#icon" href="images/icons/caret_down.svg#icon"></use>
+				</svg>
 			</button>
 		</div>
 	</body>

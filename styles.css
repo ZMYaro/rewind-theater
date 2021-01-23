@@ -12,6 +12,10 @@ button {
 	height: 3rem;
 	border-radius: 1.5rem;
 	
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	
 	background: transparent;
 	border: 0 none;
 	outline: none;
@@ -26,6 +30,12 @@ button {
 	button:active {
 		background-color: #2a4060;
 		background-color: rgba(42, 64, 96, 0.5);
+	}
+	button svg {
+		width: 1.5rem;
+		height: 1.5rem;
+		fill: currentColor;
+		pointer-events: none;
 	}
 
 #vid,
@@ -44,8 +54,8 @@ button {
 	height: 3em;
 	
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
 	
 	background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0.6));
 	background-image:    -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0.6));

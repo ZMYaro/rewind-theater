@@ -4,20 +4,20 @@ window.addEventListener('keydown', function(e) {
 		return;
 	}
 	switch(e.keyCode) {
-		case 27: // esc
+		case 27: // Esc
 			e.preventDefault();
 			clearCanvas();
 			break;
-		case 32: // space
+		case 32: // Space
 			e.preventDefault();
 			playPause();
 			break;
-		case 37: // left
+		case 37: // Left
 			e.preventDefault();
 			startRew();
 			document.getElementById('rewBtn').disabled = true;
 			break;
-		case 39: // right
+		case 39: // Right
 			e.preventDefault();
 			startFwd();
 			document.getElementById('fwdBtn').disabled = true;
@@ -27,6 +27,24 @@ window.addEventListener('keydown', function(e) {
 			clearCanvas();
 			break;
 		case 69: // E
+			e.preventDefault();
+			tool = 'ellipse';
+			break;
+		case 74: // J
+			e.preventDefault();
+			startRew();
+			document.getElementById('rewBtn').disabled = true;
+			break;
+		case 75: // K
+			e.preventDefault();
+			playPause();
+			break;
+		case 76: // L
+			e.preventDefault();
+			startFwd();
+			document.getElementById('fwdBtn').disabled = true;
+			break;
+		case 79: // O
 			e.preventDefault();
 			tool = 'ellipse';
 			break;
@@ -42,12 +60,22 @@ window.addEventListener('keydown', function(e) {
 }, false);
 window.addEventListener('keyup', function(e) {
 	switch(e.keyCode) {
-		case 37: // left
+		case 37: // Left
 			e.preventDefault();
 			stopRew();
 			document.getElementById('rewBtn').disabled = false;
 			break;
-		case 39: // right
+		case 39: // Right
+			e.preventDefault();
+			stopFwd();
+			document.getElementById('fwdBtn').disabled = false;
+			break;
+		case 74: // J
+			e.preventDefault();
+			stopRew();
+			document.getElementById('rewBtn').disabled = false;
+			break;
+		case 76: // L
 			e.preventDefault();
 			stopFwd();
 			document.getElementById('fwdBtn').disabled = false;

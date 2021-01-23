@@ -82,6 +82,10 @@ button {
 		opacity: 0;
 	}
 
+#vid-upload {
+	display: none;
+}
+
 .shape {
 	position: fixed;
 	

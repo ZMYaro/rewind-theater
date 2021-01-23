@@ -21,6 +21,7 @@ self.addEventListener('install', function (ev) {
 				'/images/icons/circle.svg',
 				'/images/icons/clear.svg',
 				'/images/icons/fast_forward.svg',
+				'/images/icons/open.svg',
 				'/images/icons/pause.svg',
 				'/images/icons/play.svg',
 				'/images/icons/rect.svg',

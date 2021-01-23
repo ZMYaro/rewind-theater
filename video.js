@@ -2,6 +2,7 @@
 var SEEK_AMT = 1;
 
 var vid,
+	vidUpload,
 	playIcon,
 	pauseIcon,
 	rewInterval,
@@ -112,6 +113,7 @@ window.addEventListener('load', function() {
 	vid = document.getElementById('vid');
 	playIcon = document.getElementById('play-icon');
 	pauseIcon = document.getElementById('pause-icon');
+	vidUpload = document.getElementById('vid-upload');
 	document.getElementById('play-pause-btn').addEventListener('click', playPause, false);
 	document.getElementById('rew-btn').addEventListener('pointerdown', startRew, false);
 	document.getElementById('rew-btn').addEventListener('pointerup',    stopRew, false);
@@ -121,7 +123,9 @@ window.addEventListener('load', function() {
 	document.getElementById('fwd-btn').addEventListener('pointerup',     stopFwd, false);
 	document.getElementById('fwd-btn').addEventListener('pointerleave',  stopFwd, false);
 	document.getElementById('fwd-btn').addEventListener('pointercancel', stopFwd, false);
-	document.getElementById('vid-upload').addEventListener('change', loadVideo, false);
-	
 	document.getElementById('hide-toolbar-btn').addEventListener('click', toggleToolbar, false);
+	document.getElementById('upload-btn').addEventListener('click', function () {
+		vidUpload.click();
+	});
+	vidUpload.addEventListener('change', loadVideo, false);
 }, false);

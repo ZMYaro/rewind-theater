@@ -113,10 +113,14 @@ window.addEventListener('load', function() {
 	playIcon = document.getElementById('play-icon');
 	pauseIcon = document.getElementById('pause-icon');
 	document.getElementById('play-pause-btn').addEventListener('click', playPause, false);
-	document.getElementById('rew-btn').addEventListener('mousedown', startRew, false);
-	document.getElementById('rew-btn').addEventListener('mouseup', stopRew, false);
-	document.getElementById('fwd-btn').addEventListener('mousedown', startFwd, false);
-	document.getElementById('fwd-btn').addEventListener('mouseup', stopFwd, false);
+	document.getElementById('rew-btn').addEventListener('pointerdown', startRew, false);
+	document.getElementById('rew-btn').addEventListener('pointerup',    stopRew, false);
+	document.getElementById('rew-btn').addEventListener('pointerleave',  stopRew, false);
+	document.getElementById('rew-btn').addEventListener('pointercancel', stopRew, false);
+	document.getElementById('fwd-btn').addEventListener('pointerdown', startFwd, false);
+	document.getElementById('fwd-btn').addEventListener('pointerup',     stopFwd, false);
+	document.getElementById('fwd-btn').addEventListener('pointerleave',  stopFwd, false);
+	document.getElementById('fwd-btn').addEventListener('pointercancel', stopFwd, false);
 	document.getElementById('vid-upload').addEventListener('change', loadVideo, false);
 	
 	document.getElementById('hide-toolbar-btn').addEventListener('click', toggleToolbar, false);

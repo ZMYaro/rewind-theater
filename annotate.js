@@ -91,17 +91,11 @@ window.addEventListener('load', function () {
 		e.preventDefault();
 	}, false);
 	
-	canvas.addEventListener('mousedown', startDraw, false);
-	canvas.addEventListener('touchstart', startDraw, false);
-	
-	canvas.addEventListener('mousemove', continueDraw, false);
-	canvas.addEventListener('touchmove', continueDraw, false);
-	
-	canvas.addEventListener('mouseup', stopDraw, false);
-	//window.addEventListener('mouseout', stopDraw, false);
-	canvas.addEventListener('touchend', stopDraw, false);
-	canvas.addEventListener('touchcancel', stopDraw, false);
-	//canvas.addEventListener('touchleave', stopDraw, false);
+	canvas.addEventListener('pointerdown', startDraw, false);
+	canvas.addEventListener('pointermove', continueDraw, false);
+	canvas.addEventListener('pointerup',     stopDraw, false);
+	canvas.addEventListener('pointerleave',  stopDraw, false);
+	canvas.addEventListener('pointercancel', stopDraw, false);
 	
 	document.getElementById('clear-btn').addEventListener('click', clearCanvas, false);
 	document.getElementById('rect-btn').addEventListener('click', function () {

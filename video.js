@@ -30,19 +30,18 @@ function stopEvent(e) {
 function loadVideo(e) {
 	stopEvent(e);
 	
-	if (window.File && window.FileReader && window.FileList && window.Blob) {
-		var file = e.target.files[0];
-		if (!file || !file.type.match('video.*')) {
-			return;
-		}
-		var reader = new FileReader();
-		reader.onload = function(ev) {
-			vid.src = ev.target.result;
-		};
-		reader.readAsDataURL(file);
-	} else {
-		alert('Please switch to a browser that supports the file APIs such as Google Chrome or Internet Explorer 11.');
+	if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
+		alert('Please switch to a browser that supports the file APIs, such as Google Chrome.');
+		return;
 	}
+	
+	var file = e.target.files[0];
+	if (!file || !file.type.match('video.*')) {
+		alert('Please upload a valid video file.');
+		return;
+	}
+	
+	vid.src = URL.createObjectURL(file);
 }
 
 /** Toggle video play state */

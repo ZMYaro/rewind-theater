@@ -1,6 +1,20 @@
-var canvas;
-var tool = 'rect';
-var currentShape;
+var canvas,
+	tool,
+	rectBtn,
+	ellipseBtn,
+	currentShape;
+
+function setRectTool() {
+	ellipseBtn.classList.remove('selected');
+	rectBtn.classList.add('selected');
+	tool = 'rect';
+}
+
+function setEllipseTool() {
+	rectBtn.classList.remove('selected');
+	ellipseBtn.classList.add('selected');
+	tool = 'ellipse';
+}
 
 function startDraw(e) {
 	e.preventDefault();
@@ -97,11 +111,12 @@ window.addEventListener('load', function () {
 	canvas.addEventListener('pointerleave',  stopDraw, false);
 	canvas.addEventListener('pointercancel', stopDraw, false);
 	
+	rectBtn = document.getElementById('rect-btn');
+	rectBtn.addEventListener('click', setRectTool, false);
+	ellipseBtn = document.getElementById('ellipse-btn');
+	ellipseBtn.addEventListener('click', setEllipseTool, false);
 	document.getElementById('clear-btn').addEventListener('click', clearCanvas, false);
-	document.getElementById('rect-btn').addEventListener('click', function () {
-		tool = 'rect';
-	}, false);
-	document.getElementById('ellipse-btn').addEventListener('click', function () {
-		tool = 'ellipse';
-	})
+	
+	// Select the rectangle tool by default.
+	setRectTool();
 }, false);

@@ -21,6 +21,11 @@ button {
 	outline: none;
 	color: inherit;
 	cursor: pointer;
+	
+	/* Slight ink ripple effect when button is deselected */
+	box-shadow: inset 0 0 0 0 #2a4060;
+	transition-property: box-shadow;
+	transition-duration: 0.15s;
 }
 	button:hover,
 	button:focus {
@@ -35,6 +40,10 @@ button {
 		background: transparent;
 		opacity: 0.75;
 		cursor: default;
+	}
+	button.selected {
+		background-color: #2a4060;
+		box-shadow: inset 0 0 1px 1.75rem #2a4060;
 	}
 	button svg {
 		width: 1.5rem;

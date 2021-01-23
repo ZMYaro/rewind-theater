@@ -28,7 +28,7 @@ window.addEventListener('keydown', function (e) {
 			break;
 		case 69: // E
 			e.preventDefault();
-			tool = 'ellipse';
+			setEllipseTool();
 			break;
 		case 74: // J
 			e.preventDefault();
@@ -46,11 +46,11 @@ window.addEventListener('keydown', function (e) {
 			break;
 		case 79: // O
 			e.preventDefault();
-			tool = 'ellipse';
+			setEllipseTool();
 			break;
 		case 82: // R
 			e.preventDefault();
-			tool = 'rect';
+			setRectTool();
 			break;
 		case 84: // T
 			e.preventDefault();

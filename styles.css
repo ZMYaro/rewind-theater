@@ -7,6 +7,14 @@ body {
 	color: #e0eaf0;
 	font-family: sans-serif;
 }
+kbd {
+	display: inline-block;
+	padding: 0 8px;
+	margin: 0 2px;
+	border-radius: 2px;
+	background-color: rgba(128, 128, 128, 0.25);
+	font: inherit;
+}
 a {
 	color: #94b2f2;
 }
@@ -114,6 +122,11 @@ button {
 	#info-sheet.hidden {
 		transform: translateY(100%);
 		pointer-events: none;
+	}
+	#info-sheet img {
+		width: 1.5em;
+		height: 1.5em;
+		margin: -0.4em 0;
 	}
 
 .shape {

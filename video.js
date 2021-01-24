@@ -43,6 +43,7 @@ function loadVideo(e) {
 	}
 	
 	vid.src = URL.createObjectURL(file);
+	document.title = file.name + ' - Rewind Theater';
 }
 
 /** Toggle video play state */

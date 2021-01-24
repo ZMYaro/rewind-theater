@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 		<script type="text/javascript" src="video.js"></script>
 		<script type="text/javascript" src="annotate.js"></script>
+		<script type="text/javascript" src="info.js"></script>
 		<script type="text/javascript" src="keyboard.js"></script>
 		
 		<script type="text/javascript">
@@ -84,12 +85,31 @@
 					</svg>
 				</button>
 			</div>
-			<button id="hide-toolbar-btn" title="Hide toolbar (T to show/hide)">
-				<svg role="img" style="transform: rotateZ(180deg);">
-					<title>Hide toolbar</title>
-					<use xlink:href="images/icons/caret_down.svg#icon" href="images/icons/caret_down.svg#icon"></use>
-				</svg>
-			</button>
+			<div>
+				<button id="info-btn" title="About">
+					<svg role="img">
+						<title>About</title>
+						<use xlink:href="images/icons/info.svg#icon" href="images/icons/info.svg#icon"></use>
+					</svg>
+				</button><!--
+				--><button id="hide-toolbar-btn" title="Hide toolbar (T to show/hide)">
+					<svg role="img" style="transform: rotateZ(180deg);">
+						<title>Hide toolbar</title>
+						<use xlink:href="images/icons/caret_down.svg#icon" href="images/icons/caret_down.svg#icon"></use>
+					</svg>
+				</button>
+			</div>
 		</div>
+		<section id="info-sheet" class="hidden">
+			<p>
+				Open a video from your computer to start.  Click and drag to draw a shape on the video.  Select the &times; button to clear everything drawn.  Press <kbd>T</kbd> to toggle the toolbar.  Hover over toolbar buttons to see other keyboard shortcuts.
+			</p>
+			<p>
+				Developed by <a href="https://zmyaro.com" target="_blank">Zachary Yaro</a>.
+			</p>
+			<p>
+				If you like this app, please consider <a href="https://ko-fi.com/zmyaro" target="_blank">buying me a cuppa</a>.
+			</p>
+		</section>
 	</body>
 </html>

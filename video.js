@@ -17,6 +17,7 @@ function stopEvent(e) {
 		return;
 	}
 	e.preventDefault();
+	e.stopPropagation();
 	// If the event clicked something like a button, remove focus from the clicked thing.
 	if (e instanceof MouseEvent && e.target && e.target.blur) {
 		e.target.blur();

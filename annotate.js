@@ -19,6 +19,11 @@ function setEllipseTool() {
 function startDraw(e) {
 	e.preventDefault();
 	
+	// If the info. sheet is open, do not draw.
+	if (!!infoSheet && !infoSheet.classList.contains('hidden')) {
+		return;
+	}
+	
 	// If a shape is already being drawn, do not start another one.
 	if (currentShape) {
 		return;
@@ -83,7 +88,9 @@ function continueDraw(e) {
 	}
 }
 function stopDraw(e) {
-	e.preventDefault();
+	if (e) {
+		e.preventDefault();
+	}
 	currentShape = null;
 }
 
@@ -101,9 +108,7 @@ function clearCanvas(e) {
 window.addEventListener('load', function () {
 	canvas = document.getElementById('canvas');
 	
-	canvas.addEventListener('selectstart', function (e) {
-		e.preventDefault();
-	}, false);
+	canvas.addEventListener('selectstart', function (e) { e.preventDefault(); }, false);
 	
 	canvas.addEventListener('pointerdown', startDraw, false);
 	canvas.addEventListener('pointermove', continueDraw, false);

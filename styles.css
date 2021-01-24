@@ -115,12 +115,14 @@ button {
 	line-height: 150%;
 	
 	background-color: #272727;
+	box-shadow: 0 -640px 640px 640px rgba(0, 0, 0, 0.5);
 	
 	transition-property: transform;
 	transition-duration: 0.2s;
 }
 	#info-sheet.hidden {
 		transform: translateY(100%);
+		box-shadow: none;
 		pointer-events: none;
 	}
 	#info-sheet img {

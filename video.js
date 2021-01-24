@@ -37,7 +37,10 @@ function loadVideo(e) {
 	}
 	
 	var file = e.target.files[0];
-	if (!file || !file.type.match('video.*')) {
+	if (!file) {
+		return;
+	}
+	if (!file.type.match('video.*')) {
 		alert('Please upload a valid video file.');
 		return;
 	}

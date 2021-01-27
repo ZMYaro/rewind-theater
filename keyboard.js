@@ -56,6 +56,10 @@ window.addEventListener('keydown', function (e) {
 			e.preventDefault();
 			toggleToolbar();
 			break;
+		case 112: // F1
+			e.preventDefault();
+			showInfoSheet();
+			break;
 	}
 }, false);
 window.addEventListener('keyup', function (e) {

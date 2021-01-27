@@ -115,8 +115,22 @@ function toggleToolbar(e) {
 }
 
 /** Set the playback speed to the speed picker setting. */
-function setSpeed(ev) {
+function setSpeed() {
 	vid.playbackRate = speedPicker.value;
+}
+/** Decrease to the next speed setting down on the picker. */
+function decreaseSpeed() {
+	if (speedPicker.selectedIndex > 0) {
+		speedPicker.selectedIndex--;
+		setSpeed();
+	}
+}
+/** Increase to the next speed setting up on the picker. */
+function increaseSpeed() {
+	if (speedPicker.selectedIndex < speedPicker.options.length - 1) {
+		speedPicker.selectedIndex++;
+		setSpeed();
+	}
 }
 
 window.addEventListener('load', function() {

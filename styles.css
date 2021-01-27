@@ -56,11 +56,16 @@ button {
 		background-color: #2a4060;
 		box-shadow: inset 0 0 1px 1.75rem #2a4060;
 	}
-	button img {
+	button img,
+	button svg {
 		width: 1.5rem;
 		height: 1.5rem;
 		pointer-events: none;
 	}
+#color-picker-btn.dark-color {
+	stroke: #ffffff;
+	stroke-width: 0.5px;
+}
 
 #vid,
 #canvas {
@@ -90,6 +95,7 @@ button {
 	
 	text-align: center;
 	white-space: nowrap;
+	user-select: none;
 	
 	opacity: 1;
 	
@@ -101,8 +107,15 @@ button {
 		opacity: 0;
 	}
 
+/* Inputs triggered by other buttons. */
 #vid-upload {
 	display: none;
+}
+/* Color picker does not appear in the right place on desktop if display: none. */
+#color-picker {
+	width: 0;
+	visibility: hidden;
+	pointer-events: none;
 }
 
 #info-sheet {
@@ -135,9 +148,9 @@ button {
 	position: fixed;
 	
 	border-radius: 1px;
-	border: 2px solid lime;
-	box-shadow: 0 1px 2px 0 lime,
-		inset 0 1px 2px 0 lime,
+	border: 2px solid;
+	box-shadow: 0 1px 2px 0,
+		inset 0 1px 2px 0,
 		0 1px 4px 0 rgba(0,0,0,0.2),
 		inset 0 1px 4px 0 rgba(0,0,0,0.2);
 }

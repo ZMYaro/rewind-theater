@@ -1,4 +1,8 @@
+var DEFAULT_COLOR = '#00ff00';
+
 var canvas,
+	colorPicker,
+	colorPickerBtn,
 	tool,
 	rectBtn,
 	ellipseBtn,
@@ -44,6 +48,8 @@ function startDraw(e) {
 	// Create a new shape element.
 	currentShape.elem = document.createElement('div');
 	currentShape.elem.className = 'shape ' + tool;
+	currentShape.elem.style.borderColor = colorPicker.value;
+	currentShape.elem.style.color = colorPicker.value; // box-shadow uses the `color` by default.
 	
 	currentShape.elem.style.left = currentShape.startX + 'px';
 	currentShape.elem.style.top = currentShape.startY + 'px';
@@ -105,6 +111,29 @@ function clearCanvas(e) {
 	}*/
 }
 
+/**
+ * Set the color icon and saved color to the current color picker value.
+ */
+function setColor() {
+	localStorage.color = colorPicker.value;
+	colorPickerBtn.style.fill = colorPicker.value;
+	colorPickerBtn.classList.toggle('dark-color', isColorDark(colorPicker.value));
+}
+
+/**
+ * Check whether the color is roughly dark enough to get lost on a dark background.
+ * @param {String} colorHex - The CSS hex value of the color
+ * @returns {Boolean}
+ */
+function isColorDark(colorHex) {
+	var LUM_THRESHOLD = 52;
+	var r = parseInt(colorHex.substr(1, 2), 16),
+		g = parseInt(colorHex.substr(3, 2), 16),
+		b = parseInt(colorHex.substr(5, 2), 16),
+		luminance = (0.299 * r) + (0.587 * g) + (0.114 * b);
+	return (luminance < LUM_THRESHOLD);
+}
+
 window.addEventListener('load', function () {
 	canvas = document.getElementById('canvas');
 	
@@ -115,6 +144,16 @@ window.addEventListener('load', function () {
 	canvas.addEventListener('pointerup',     stopDraw, false);
 	canvas.addEventListener('pointerleave',  stopDraw, false);
 	canvas.addEventListener('pointercancel', stopDraw, false);
+	
+	// Set up color picker events.
+	colorPicker = document.getElementById('color-picker');
+	colorPicker.addEventListener('input', setColor);
+	colorPickerBtn = document.getElementById('color-picker-btn');
+	colorPickerBtn.addEventListener('click', function () { colorPicker.click(); });
+	// Get the last used color or set it to the default.
+	colorPicker.value = localStorage.color || DEFAULT_COLOR;
+	// Propagate that to the button icon.
+	setColor();
 	
 	rectBtn = document.getElementById('rect-btn');
 	rectBtn.addEventListener('click', setRectTool, false);

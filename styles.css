@@ -18,7 +18,8 @@ kbd {
 a {
 	color: #94b2f2;
 }
-button {
+button,
+select {
 	width: 3rem;
 	height: 3rem;
 	border-radius: 1.5rem;
@@ -39,15 +40,19 @@ button {
 	transition-duration: 0.15s;
 }
 	button:hover,
-	button:focus {
+	button:focus,
+	select:hover,
+	select:focus {
 		background-color: #1a1c1f;
 		background-color: rgba(26, 28, 31, 0.5);
 	}
-	button:active {
+	button:active,
+	select:active {
 		background-color: #2a4060;
 		background-color: rgba(42, 64, 96, 0.5);
 	}
-	button:disabled {
+	button:disabled,
+	select:disabled {
 		background: transparent;
 		opacity: 0.75;
 		cursor: default;
@@ -62,6 +67,14 @@ button {
 		height: 1.5rem;
 		pointer-events: none;
 	}
+select {
+	-webkit-appearance: none;
+	        appearance: none;
+	width: auto;
+	font-size: 1.125rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
 #color-picker-btn.dark-color {
 	stroke: #ffffff;
 	stroke-width: 0.5px;
@@ -105,6 +118,10 @@ button {
 	#toolbar.hidden {
 		bottom: -4em;
 		opacity: 0;
+	}
+	#toolbar div button,
+	#toolbar div select {
+		vertical-align: middle;
 	}
 
 /* Inputs triggered by other buttons. */

@@ -5,6 +5,7 @@ var vid,
 	vidUpload,
 	playIcon,
 	pauseIcon,
+	speedPicker,
 	rewInterval,
 	fwdInterval;
 
@@ -113,11 +114,21 @@ function toggleToolbar(e) {
 	document.getElementById('toolbar').classList.toggle('hidden');
 }
 
+/** Set the playback speed to the speed picker setting. */
+function setSpeed(ev) {
+	vid.playbackRate = speedPicker.value;
+}
+
 window.addEventListener('load', function() {
 	vid = document.getElementById('vid');
 	playIcon = document.getElementById('play-icon');
 	pauseIcon = document.getElementById('pause-icon');
+	speedPicker = document.getElementById('speed-picker');
 	vidUpload = document.getElementById('vid-upload');
+	
+	speedPicker.addEventListener('pointerdown', function (ev) { ev.stopPropagation(); });
+	speedPicker.addEventListener('input', setSpeed);
+	
 	document.getElementById('play-pause-btn').addEventListener('click', playPause, false);
 	document.getElementById('rew-btn').addEventListener('pointerdown', startRew, false);
 	document.getElementById('rew-btn').addEventListener('pointerup',    stopRew, false);

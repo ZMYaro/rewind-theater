@@ -1,6 +1,3 @@
-/** How far to seek when rewinding or fast-forwarding */
-var SEEK_AMT = 1;
-
 var vid,
 	vidUpload,
 	playIcon,
@@ -84,7 +81,7 @@ function stopRew(e) {
 function rewind(e) {
 	stopEvent(e);
 	
-	vid.currentTime -= SEEK_AMT;
+	vid.currentTime -= parseFloat(speedPicker.value);
 }
 /** Start fast-forwarding */
 function startFwd(e) {
@@ -105,7 +102,7 @@ function stopFwd(e) {
 function fastForward(e) {
 	stopEvent(e);
 	
-	vid.currentTime += SEEK_AMT;
+	vid.currentTime += parseFloat(speedPicker.value);
 }
 
 /** Toggles the toolbar's hiddenness */

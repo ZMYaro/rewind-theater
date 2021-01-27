@@ -1,10 +1,9 @@
-var CACHE_NAME = 'cache-2021-01-23';
+var CACHE_NAME = 'cache-2021-01-27';
 
 self.addEventListener('install', function (ev) {
 	// Add files to cache.
 	ev.waitUntil(
 		caches.open(CACHE_NAME).then(function (cache) {
-			console.log('Updated service worker cache \u201c' + CACHE_NAME + '\u201d');
 			return cache.addAll([
 				'/',
 				'/index.html',
@@ -24,13 +23,16 @@ self.addEventListener('install', function (ev) {
 				'/images/icons/fast_forward.svg',
 				'/images/icons/info.svg',
 				'/images/icons/open.svg',
+				'/images/icons/palette.svg',
 				'/images/icons/pause.svg',
 				'/images/icons/play.svg',
 				'/images/icons/rect.svg',
 				'/images/icons/rewind.svg',
 			]);
+		}).then(function () {
+			console.log('Cached \u201c' + CACHE_NAME + '\u201d');
 		}).catch(function () {
-			console.warn('Service worker failed to cache \u201c' + CACHE_NAME + '\u201d');
+			console.warn('Failed to cache \u201c' + CACHE_NAME + '\u201d');
 		}));
 });
 

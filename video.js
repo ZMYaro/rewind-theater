@@ -137,6 +137,7 @@ window.addEventListener('load', function() {
 	speedPicker = document.getElementById('speed-picker');
 	vidUpload = document.getElementById('vid-upload');
 	
+	document.getElementById('toolbar').addEventListener('pointerdown', function (ev) { ev.stopPropagation(); });
 	speedPicker.addEventListener('pointerdown', function (ev) { ev.stopPropagation(); });
 	speedPicker.addEventListener('input', setSpeed);
 	

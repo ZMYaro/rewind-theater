@@ -109,6 +109,8 @@ select {
 	text-align: center;
 	white-space: nowrap;
 	user-select: none;
+	overflow: hidden;
+	overflow-x: auto;
 	
 	opacity: 1;
 	

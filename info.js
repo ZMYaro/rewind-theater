@@ -1,5 +1,9 @@
 var infoSheet;
 
+/**
+ * Show the info. sheet.
+ * @param {Event} ev - The event, if this was triggered by an event listener
+ */
 function showInfoSheet(ev) {
 	stopEvent(ev);
 	
@@ -11,6 +15,10 @@ function showInfoSheet(ev) {
 	infoSheet.classList.remove('hidden');
 }
 
+/**
+ * Hide the info. sheet.
+ * @param {Event} ev - The event, if this was triggered by an event listener
+ */
 function hideInfoSheet(ev) {
 	stopEvent(ev);
 	
@@ -21,6 +29,9 @@ function hideInfoSheet(ev) {
 	infoSheet.classList.add('hidden');
 }
 
+/**
+ * Show/hide the info. sheet based on whether the URL fragment is `#about`.
+ */
 function handleHashChange() {
 	if (location.hash === '#about') {
 		showInfoSheet();

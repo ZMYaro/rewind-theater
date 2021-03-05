@@ -8,18 +8,28 @@ var canvas,
 	ellipseBtn,
 	currentShape;
 
+/**
+ * Set the current tool to the rectangle tool.
+ */
 function setRectTool() {
 	ellipseBtn.classList.remove('selected');
 	rectBtn.classList.add('selected');
 	tool = 'rect';
 }
 
+/**
+ * Set the current tool to the ellipse tool.
+ */
 function setEllipseTool() {
 	rectBtn.classList.remove('selected');
 	ellipseBtn.classList.add('selected');
 	tool = 'ellipse';
 }
 
+/**
+ * Start drawing a shape.
+ * @param {PointerEvent} e
+ */
 function startDraw(e) {
 	e.preventDefault();
 	
@@ -55,6 +65,10 @@ function startDraw(e) {
 	currentShape.elem.style.top = currentShape.startY + 'px';
 	canvas.appendChild(currentShape.elem);
 }
+/**
+ * Handle the pointer moving after starting to draw.
+ * @param {PointerEvent} e
+ */
 function continueDraw(e) {
 	e.preventDefault();
 	if (!currentShape) {
@@ -93,6 +107,9 @@ function continueDraw(e) {
 			(currentShape.startY - y) + 'px';
 	}
 }
+/**
+ * Handle the pointer releasing after drawing a shape.
+ */
 function stopDraw(e) {
 	if (e) {
 		e.preventDefault();
@@ -100,15 +117,14 @@ function stopDraw(e) {
 	currentShape = null;
 }
 
-/** Remove all shapes from the canvas */
+/**
+ * Remove all shapes from the canvas.
+ * @param {Event} e - The event, if this was triggered by an event listener
+ */
 function clearCanvas(e) {
 	if (e) { e.preventDefault(); }
 	// Remove all canvas content.
 	canvas.innerHTML = '<span></span>';
-	/*var shapes = canvas.getElementsByClassName('shape');
-	while(shapes.length > 0) {
-		canvas.removeChild(shapes[0]);
-	}*/
 }
 
 /**

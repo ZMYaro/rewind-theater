@@ -1,4 +1,4 @@
-var CACHE_NAME = 'cache-2021-02-08';
+var CACHE_NAME = 'cache-2021-07-27';
 
 self.addEventListener('install', function (ev) {
 	// Add files to cache.
